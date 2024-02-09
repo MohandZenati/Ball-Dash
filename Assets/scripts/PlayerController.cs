@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float runSpeed = 8f;
+
+
     public float gravity = -9.81f;
     Vector3 velocity;
     public LayerMask groundMask;
@@ -35,7 +37,8 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = -2f;
         }
-
+        
+    
         characterController.Move(new Vector3(horizontalInput * runSpeed, 0, 0) * Time.deltaTime);
 
 

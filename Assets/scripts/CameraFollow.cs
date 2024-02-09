@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Transform target = null;
+    private Vector3 offset;
+
     void Start()
     {
-        
+        offset = transform.position - target.position; 
+        offset.y = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, transform.position.y, target.position.z) + offset, Time.deltaTime * 3);
     }
 }

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EnvironnementMoving : MonoBehaviour
 {
-    private static float speed = -2f; // Vitesse initiale
-    private float maxSpeed = -30f; // Vitesse maximale
-    private float speedIncrease = -2f; // Augmentation de vitesse
-    private float speedIncreaseInterval = 3f; // Intervalle d'augmentation de vitesse
+    private static float speed = -7f; // Vitesse initiale
+    private float maxSpeed = -19f; // Vitesse maximale
+    private float speedIncrease = -3f; // Augmentation de vitesse
+    private float speedIncreaseInterval = 30f; // Intervalle d'augmentation de vitesse (30 secondes)
     private float nextSpeedIncreaseTime; // Temps avant d'augmenter la vitesse
-
 
     void Start()
     {

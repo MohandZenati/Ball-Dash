@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayers;
     [SerializeField] private float runSpeed = 4f;
     [SerializeField] private float JumpHeight = 4f;
+
+     [SerializeField] private AudioClip jumpSoundEffect;
     private float gravity = -50f;
     private CharacterController characterController;
     private Vector3 velocity;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             velocity.y += Mathf.Sqrt(JumpHeight * -2 * gravity);
+            AudioSource.PlayClipAtPoint(jumpSoundEffect, transform.position, 0.5f);
         }
 
         characterController.Move(velocity * Time.deltaTime);

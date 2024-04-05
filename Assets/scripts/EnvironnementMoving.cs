@@ -15,7 +15,7 @@ public class EnvironnementMoving : MonoBehaviour
         nextSpeedIncreaseTime = Time.time + speedIncreaseInterval; // Initialiser le prochain temps d'augmentation de vitesse
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         // Vérifier si le temps pour augmenter la vitesse est écoulé
@@ -29,11 +29,15 @@ public class EnvironnementMoving : MonoBehaviour
         transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+// Ce code est une méthode qui gère les événements de collision déclenchés lorsqu'un autre collider entre en contact avec celui attaché à cet objet.
+private void OnTriggerEnter(Collider other)
+{
+    // Vérifie si l'objet entré en collision a un tag spécifique appelé "Destroy".
+    if (other.gameObject.CompareTag("Destroy"))
     {
-        if (other.gameObject.CompareTag("Destroy"))
-        {
-            Destroy(gameObject);
-        }
+        // Si l'objet entré en collision a le tag "Destroy", détruit l'objet auquel ce script est attaché.
+        Destroy(gameObject);
     }
+}
+
 }
